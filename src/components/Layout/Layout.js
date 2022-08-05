@@ -1,14 +1,22 @@
 import "./Layout.scss";
 import Header from "../Header/Header";
-import Book from "../Book/Book";
+import Books from "../Books/Books";
 
-function Layout() {
+const Layout = () =>{
     return (
         <div className="layout">
             <Header></Header>
-            <Book></Book>
+            <Books></Books>
+            {/* <MoveBtn></MoveBtn> */}
         </div>
     );
 }
-  
+// const MoveBtn = () =>{
+//     return(
+//         <div>
+            
+//         </div>
+//     )
+// }
+
 export default Layout;
