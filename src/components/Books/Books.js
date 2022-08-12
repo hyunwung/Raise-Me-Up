@@ -83,14 +83,12 @@ const Books = ()=>{
       <div id="book" className="book">
         <div id="p1" className="paper">
             <div className="front">
-                <div id="f1" className="front-content">
-                    {loginCheck ? <Login></Login> : <div>ff</div>}
+                <div id="f1" className="front-content">킄
                 </div>
             </div>
             <div className="back">
                 <div id="b1" className="back-content">
                     <Calendars></Calendars>
-                    <div>로그인 이후 이용해주세요~!</div>
                 </div>
             </div>
         </div>

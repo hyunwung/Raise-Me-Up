@@ -1,26 +1,33 @@
-import React from 'react';
+import React, { useState } from 'react';
+import LoginInput, { LoginBtn } from '../LoginCompo/LoginInput';
 import "./Login.scss";
-
+import logo from "../../image/logo2.png";
+import {Link} from "react-router-dom";
 
 const Login = () => {
+  const [userData,setUserData] = useState({
+    id:"",
+    password:"",
+  })
+  const loginHandle = () =>{
+
+  }
+  const onChange = (e) =>{
+    setUserData({...userData,[e.target.name]:e.target.value})
+  }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  }
   return (
     <div className='login'>
-      <div className='container'>
-        <form className='join-id'>
-          <div>
-            <label>아이디</label>
-            <input></input>
-          </div>
-          <div>
-            <label>패스워드</label>
-            <input></input>
-          </div>
-          <div className='btns'>
-            <button>회원가입</button>
-            <button>로그인</button>
-          </div>
-        </form>
-      </div>
+      <form onSubmit={handleSubmit}>
+        <img className='logo-img' src={logo}></img>
+        <LoginInput name = "ID" placeholder="아이디" onChange={onChange}></LoginInput>
+        <LoginInput name = "password" placeholder="비밀번호" onChange={onChange}></LoginInput>
+        <LoginBtn value = "로그인">로그인</LoginBtn>
+        <Link to="/signup"><LoginBtn value ="회원가입"></LoginBtn></Link>
+        <div className='regi-label'>아이디가 기억이 안나세요?</div>
+      </form>
     </div>
   )
 }

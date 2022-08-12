@@ -1,34 +1,33 @@
-.container{
-    max-width: 850px;
-    
-    margin: auto;
+.login{
     display: flex;
-    background-color: rgba(254, 251, 234, 0.7);
-    .join-id{
-        width: 100%;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        display: flex;
-        input{
-            display: flex;
-            justify-content: center;
-            align-items : center;
-        }
-        .btns{
-            
-            display: flex;
-            flex-direction: column;
-            button{
-                margin: 5px;
-                width:200px; height:45px;
-                background-color:rgb(238 221 117);
-                border: 0;
-                
-                border-radius: 12px;
-            }
-        }
-        
-    }
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background:linear-gradient(80deg,rgb(108, 92, 231),rgb(162, 155, 254));
     
+    // background: linear-gradient(rgba(255,255,255,0.7),rgba(255,255,255,0.3));
+}
+.login-container{
+}
+.logo-img{
+    width: 250px;
+    margin: auto;
+    padding-bottom: -20px;
+}
+form{
+    background-color: white;
+    border-radius: 12px;
+    width:500px;
+    height: 700px;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.regi-label{
+    opacity: 0.7;
+    font-size: 18px;
+    padding-bottom: 7px;
+    cursor: pointer;
 }
