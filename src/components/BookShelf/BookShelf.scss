@@ -7,37 +7,29 @@
     width: 100vw;
     position: relative;
     background-attachment: fixed;
-    // background-color: rgba(0,0,0,0.6);
-    // z-index: 1;
-    // opacity: 0.7;
 }
 .big-container{
     width: 100vw;
     height: 32vh;
     margin: 0 auto;
-    padding-top: 35px;
     text-align: center;
     flex-direction: column;
-    background-color: rgba(0,0,0,0.6);
-    opacity: 0.7;
     h1,h3{
-        color: #eee;
+        color: white;
     }
     button{
-        margin: 0 auto;
-        width: 55px;
-        height: 55px;
+        margin: 0 0 0 20px;
+        width: 30px;
+        height: 30px;
         border: none;
+        padding: 5px 0 5px  ;
     }
     input{
-        
         width: 400px;
-        height: 45px;
-        border-radius: 5px;
-        border: none;
+        height: 60px;
     }
     i{
-        font-size: 30px;
+        font-size: 45px;
     }
     
 }
@@ -47,7 +39,17 @@
 .sub-title{
     color: white;
 }
-
+.bookshelf:after{
+    background-color: rgba(0,0,0,0.4);
+    content: "";
+    display: block;
+    height: 100%;
+    left: 0;
+    top:0;
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+}
 .book-title{
 
 }

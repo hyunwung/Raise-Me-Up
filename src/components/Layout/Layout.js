@@ -7,16 +7,8 @@ const Layout = () =>{
         <div className="layout">
             <Header></Header>
             <Books></Books>
-            {/* <MoveBtn></MoveBtn> */}
         </div>
     );
 }
-// const MoveBtn = () =>{
-//     return(
-//         <div>
-            
-//         </div>
-//     )
-// }
 
 export default Layout;

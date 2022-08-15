@@ -16,7 +16,7 @@ const NavBar = ({day}) =>{
             <Link to={`${process.env.PUBLIC_URL}/books/${day}`}>My Book</Link>
           </li>
           <li onClick={onClickEvent}>
-            <Link to={`${process.env.PUBLIC_URL}/bookshelf`}>BooksShelf</Link>
+            <Link to={`${process.env.PUBLIC_URL}/bookshelf`}>BookShelf</Link>
           </li>
           <li onClick={onClickEvent}>
             <Link to={`${process.env.PUBLIC_URL}/login`} className="logout">LogOut</Link>
