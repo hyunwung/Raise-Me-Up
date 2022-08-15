@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import ToDoForm from "../ToDo/ToDoForm";
+import ToDoForm from "../ToDoForm";
 
 const ToDoList = () => {
     return (
