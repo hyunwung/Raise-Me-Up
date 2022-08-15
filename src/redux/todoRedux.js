@@ -8,7 +8,9 @@ export const getTodosAsync = createAsyncThunk(
         const response = await fetch(url+"/api/v1/todos")
         if(response.ok){
             const todos = await response.json();
-            return {todos}
+            console.log(todos.data)
+            return todos.data
+            // return {todos}
         }
 })
 // 보내기
@@ -58,33 +60,17 @@ const todoSlice = createSlice({
     name:'todos',
     initialState:[],
     reducers:{
-        addTodo:(state,action) =>{ // 추가 기능
-            const newTodo = {
-                id:Math.random()*1000,
-                text:action.payload.text,
-                subText:action.payload.subText,
-                isCompleted:false,
-            };
-        state.push(newTodo)
-        // return [...state,newTodo]
-        },
-        toggleComplete:(state,action) => { // 완료 기능
-            const index = state.findIndex(
-                (todo)=>todo.id === action.payload.id
-            )
-            state[index].isCompleted = action.payload.isCompleted;
-        },
-        deleteTodo: (state,action) => {
-            return state.filter((states)=>states.id !== action.payload.id)
-        }
+        
     },
     extraReducers:{
         [getTodosAsync.fulfilled]:(state,action) => {
             console.log("fetching data successfully")
-            return action.payload.todos
+            return action.payload
+            // return action.payload.todos
         },
         [addTodoAsync.fulfilled]:(state,action)=>{
-            state.push(action.payload.todo);
+            console.log(action.payload.todo.data)
+            // state.push(action.payload.todo);
         },
         [toggleCompleteAsync.fulfilled]:(state,action)=>{
             const index = state.findIndex(
