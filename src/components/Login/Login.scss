@@ -4,15 +4,18 @@
     align-items: center;
     height: 100vh;
     background:linear-gradient(80deg,rgb(108, 92, 231),rgb(162, 155, 254));
-    
-    // background: linear-gradient(rgba(255,255,255,0.7),rgba(255,255,255,0.3));
+}
+.login-form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .login-container{
 }
 .logo-img{
     width: 250px;
     margin: auto;
-    padding-bottom: -20px;
+    margin-bottom: -30px;
 }
 form{
     background-color: white;

@@ -3,7 +3,7 @@ import logo from "../../image/logo.png";
 import {Link} from "react-router-dom";
 import { useState } from "react";
 
-const NavBar = ({day}) =>{
+const NavBar = () =>{
   const [menuBar,setMenuBar] = useState(false);
   const onClickEvent=()=>{
     setMenuBar(!menuBar);
@@ -13,7 +13,7 @@ const NavBar = ({day}) =>{
       <div className={"header-menu"+ (menuBar ? " menu-act" : " none-act")}>
         <ul>
           <li onClick={onClickEvent}>
-            <Link to={`${process.env.PUBLIC_URL}/books/${day}`}>My Book</Link>
+            <Link to={`${process.env.PUBLIC_URL}/books/${1}`}>My Book</Link>
           </li>
           <li onClick={onClickEvent}>
             <Link to={`${process.env.PUBLIC_URL}/bookshelf`}>BookShelf</Link>
@@ -33,13 +33,12 @@ const NavBar = ({day}) =>{
 }
 
 const Header = () =>{
-  let day = new Date().getDate()
     return (
       <div className="header">
         <div className="header-left">
           <Link to={`${process.env.PUBLIC_URL}/bookshelf`}><img src={logo} className='logo'></img></Link>
         </div>
-        <NavBar day={day}></NavBar>
+        <NavBar></NavBar>
       </div>
   );
 }

@@ -8,7 +8,6 @@ export const getTodosAsync = createAsyncThunk(
         const response = await fetch(url+"/api/v1/todos")
         if(response.ok){
             const todos = await response.json();
-            console.log(todos.data)
             return todos.data
             // return {todos}
         }
@@ -32,16 +31,21 @@ export const addTodoAsync = createAsyncThunk("todos/addTodoAsync",
 export const toggleCompleteAsync = createAsyncThunk("todos/toggleCompleteAsync",
     async(payload)=>{
         const response = await fetch(url+"/api/v1/todos/"+`${payload.id}`,{
-            method:"PUT",
+            method:"PATCH",
+            body:{
+                content:payload.content,
+                isCompleted:payload.isCompleted,
+            },
             headers:{
                 "Content-Type":"application/json"
-            },
-            // body:JSON.stringify({isComepleted:payload.isComepleted})
-            body:JSON.stringify({content:payload.content})
+            }
         })
+        console.log(response)
         if (response.ok){
+            
             const todo = await response.json();
-            return { id:todo.id, iscompleted:todo.isCompleted }
+            return {todo}
+            // return { id:todo.id, iscompleted:todo.isCompleted }
         }
 })
 // 삭제
@@ -60,23 +64,30 @@ const todoSlice = createSlice({
     name:'todos',
     initialState:[],
     reducers:{
-        
+        // getTodo:(state,action)=>{
+        //     state.todo = true;
+        // },
+        // postTodo:(state,action)=>{
+        //     state.todo = false
+        // }
     },
     extraReducers:{
         [getTodosAsync.fulfilled]:(state,action) => {
             console.log("fetching data successfully")
             return action.payload
+            // state = action.payload
             // return action.payload.todos
         },
         [addTodoAsync.fulfilled]:(state,action)=>{
-            console.log(action.payload.todo.data)
+            console.log("추가요",action.payload)
             // state.push(action.payload.todo);
         },
         [toggleCompleteAsync.fulfilled]:(state,action)=>{
-            const index = state.findIndex(
-                (todo)=>todo.id === action.payload.id
-            )
-            state[index].isCompleted = action.payload.isCompleted;
+            console.log(action)
+            // const index = state.findIndex(
+            //     (todo)=>todo.id === action.payload.id
+            // )
+            // state[index].isCompleted = action.payload.isCompleted;
         },
         [deleteTodoAsync.fulfilled]: (state, action) => {
 			return state.filter((todo) => todo.id !== action.payload.id);

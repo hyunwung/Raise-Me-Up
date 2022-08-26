@@ -8,7 +8,7 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path={`${process.env.PUBLIC_URL}/`} element={<Layout></Layout>}></Route>
+        {/* <Route path={`${process.env.PUBLIC_URL}/:id`} element={<Layout></Layout>}></Route> */}
         <Route path={`${process.env.PUBLIC_URL}/login`} element={<Login></Login>}></Route>
         <Route path={`${process.env.PUBLIC_URL}/signup`} element={<SignUp></SignUp>}></Route>
         <Route path={`${process.env.PUBLIC_URL}/bookshelf`} element={<BookShelf></BookShelf>}></Route>
