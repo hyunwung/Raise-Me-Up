@@ -25,35 +25,25 @@ function ToDoForm() {
                 content:todoInput
             })
         )
-        dispatch(getTodosAsync());
         setTodoInput("")
-        setCheck(!check)
+        setTimeout(()=>{setCheck(!check)},100)
     }
     
     const deleteClick = (id)=>{
         dispatch(deleteTodoAsync({ id }));
     }
-    // const toggleComplete = (id,isCompleted) =>{
-    //     dispatch(toggleCompleteAsync(
-    //         {id:id,isCompleted:!isCompleted}
-    //     ))
-    // }
     const checkComplete = (ids,isCompleteds,contents) =>{
-        dispatch(toggleCompleteAsync({id:ids,isCompleted:!isCompleteds,content:contents}))
-        // todos.find((index)=>{
-        //     if(index.id === id){
-        //         return !index.isCompleted===isCompleted
-        //     }
-        // })
+        dispatch(toggleCompleteAsync({id:ids,isCompleted:isCompleteds,content:contents}))
+        setTimeout(()=>{setCheck(!check)},100)
     }
     useEffect(()=>{
         dispatch(getTodosAsync());
-    },[])
+    },[check])
     return (
         <div className="todolist">
             <form className="todo-form">
                 <input value={todoInput} onChange={inputTextHandle} type="text" className="todo-input"/>
-                <button className="todo-button" type="submit" onClick={submitTodo}>+</button>
+                <button className="todo-button" type="submit" onClick={(e)=>{submitTodo(e)}}>+</button>
             </form>
             <div className="todo-container">
                 <ul className="todo-list">

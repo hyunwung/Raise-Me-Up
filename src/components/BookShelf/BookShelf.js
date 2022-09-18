@@ -2,11 +2,8 @@ import React, { useState } from 'react';
 import Header from '../Header/Header'
 import "./BookShelf.scss"
 import {Input,Button} from "reactstrap"
-import Card from 'react-bootstrap/Card';
-import {Link} from "react-router-dom";
 // import { BsSuitHeartFill } from "react-icons/bs";
-import logo from "../../image/letter.png";
-import axios from "axios";
+import Cards from '../cards/Cards';
 
 const ShelfHeader = () => {
   return(
@@ -23,28 +20,6 @@ const ShelfHeader = () => {
   )
 }
 
-const Cards = () => {
-  const [counts, setCounts] = useState([
-    1,
-    2,
-    3,
-    4,
-    5
-])
-  return(
-    <div className='cards'>
-      {counts.map((count,index)=>{
-        return(
-          <Link to={`/books/${index+1}`} className='card-link' key={index}>
-          <Card style={{ maxHeight:"500px" , maxWidth:"500px"}} className="card-container">
-            <Card.Img variant="top" src={logo} className="card-img"/>
-          </Card>
-          </Link>                
-          )
-      })}
-    </div>
-  )
-}
 const BookShelf = () => {
   return (
     <div className='bookshelf'>
